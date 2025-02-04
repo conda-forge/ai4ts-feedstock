@@ -6,25 +6,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: e49b2f2fc615c2d47fd345d8cddf484e26e6108d139ebe3a923abd83311167cc
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation 
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - requests
     - numpy
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - ai4ts
 
