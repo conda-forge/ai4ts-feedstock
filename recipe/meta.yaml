@@ -1,18 +1,18 @@
 {% set name = "ai4ts" %}
-{% set version = "0.0.3" %}
+{% set version = "0.1" %}
 
 package:
   name: {{ name|lower }}
   version: "{{ version }}"
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e49b2f2fc615c2d47fd345d8cddf484e26e6108d139ebe3a923abd83311167cc
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 7232953db9b56c7c7f30bf60f55bdd1f517f167f4c73f0bb714b5ebca1838615
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation 
-  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
